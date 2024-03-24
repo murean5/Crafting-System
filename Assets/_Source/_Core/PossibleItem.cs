@@ -12,12 +12,17 @@ public class PossibleItem : MonoBehaviour
     public CellManager cellManager;
     private void Awake()
     {
-        myButton.onClick.AddListener(ChooseMe);
+        myButton.onClick.AddListener(ChooseMeFromPanel);
     }
 
-    private void ChooseMe()
+    private void ChooseMeFromPanel()
     {
-        cellManager.editingCell.AddPossibleItemToMe(this);
+        cellManager.selectedCell.AddItem(Item);
         cellManager.possibleItemsPanel.SetActive(false);
+    }
+    
+    private void ChooseMeAsCraftResult()
+    {
+        cellManager.resultCell.AddItem(Item);
     }
 }

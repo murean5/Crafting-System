@@ -45,23 +45,43 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (isStorage) return;
+        
+        _cellManager.selectedCell = this;
+        
         if (eventData.button == InputButton.Right)
         {
-            _cellManager.editingCell = this;
             _cellManager.possibleItemsPanel.SetActive(!_cellManager.possibleItemsPanel.activeSelf);
         }
         else if (eventData.button == InputButton.Left)
         {
             _cellManager.possibleItemsPanel.SetActive(false);
         }
+        else if (eventData.button == InputButton.Middle)
+        {
+            if (!isFull) return;
+            
+            Clear();
+            _cellManager.UpdateCraftingTable();
+        }
     }
 
-    public void AddPossibleItemToMe(PossibleItem possibleItem)
+    public void Clear()
     {
-        MyItem = possibleItem.Item;
+        isFull = false;
+        MyItem = null;
+        myItemImage.sprite = null;
+        myItemImage.gameObject.SetActive(false);
+    }
+    
+    public void AddItem(Item item)
+    {
+        MyItem = item;
         myItemImage.sprite = MyItem.Sprite;
         myItemImage.gameObject.SetActive(true);
         isFull = true;
-        print($"Added {possibleItem.Item} to {name}");
+
+        if (isStorage) return;
+        _cellManager.UpdateCraftingTable();
     }
 }

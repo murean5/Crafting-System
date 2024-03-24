@@ -284,6 +284,7 @@ MonoBehaviour:
   craftingPanel: {fileID: 544193754}
   storagePanel: {fileID: 1573779822}
   overlay: {fileID: 2029404476}
+  possibleItemsPanel: {fileID: 845635052}
 --- !u!1 &247028227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1187,8 @@ MonoBehaviour:
   possibleItemsScrollViewContent: {fileID: 1751612828}
   possibleItemsPanel: {fileID: 845635052}
   itemPanelPrefab: {fileID: 6912681854060335797, guid: 2555bf999f8934a45af38ec37a0c21f8, type: 3}
-  editingCell: {fileID: 0}
+  selectedCell: {fileID: 0}
+  resultCell: {fileID: 1702962875}
 --- !u!1 &845635052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,8 +1227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 119.599976, y: -39.440033}
-  m_SizeDelta: {x: 239.02002, y: -256.8}
+  m_AnchoredPosition: {x: 143.6, y: -39.440033}
+  m_SizeDelta: {x: 287.02, y: -256.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &845635054
 MonoBehaviour:
@@ -2332,6 +2334,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635532635}
   m_CullTransparentMesh: 1
+--- !u!114 &1702962875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8468494216934099498, guid: bbe2efbd10f0af04cbd0f12d701a10e3, type: 3}
+  m_PrefabInstance: {fileID: 437673661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b721728e94104444a811130dacefed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1751612827
 GameObject:
   m_ObjectHideFlags: 0

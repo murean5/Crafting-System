@@ -1,22 +1,32 @@
 [
   {
     "name": "rock",
-    "id": "1",
+    "id": 1,
     "spritePath": "Sprites/rock"
   },
   {
     "name": "wood",
-    "id": "2",
+    "id": 2,
     "spritePath": "Sprites/wood"
   },
   {
     "name": "stick",
-    "id": "3",
+    "id": 3,
     "spritePath": "Sprites/stick"
   },
   {
     "name": "emerald",
-    "id": "4",
+    "id": 4,
     "spritePath": "Sprites/emerald"
+  },
+  {
+    "name": "stone pickaxe",
+    "id": 5,
+    "spritePath": "Sprites/stone_pickaxe"
+  },
+  {
+    "name": "emerald pickaxe",
+    "id": 6,
+    "spritePath": "Sprites/emerald_pickaxe"
   }
 ]

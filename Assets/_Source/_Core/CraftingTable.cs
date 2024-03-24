@@ -7,6 +7,7 @@ public class CraftingTable : MonoBehaviour
     [SerializeField] private GameObject craftingPanel;
     [SerializeField] private GameObject storagePanel;
     [SerializeField] private GameObject overlay;
+    [SerializeField] private GameObject possibleItemsPanel;
     
     private bool _canCraft;
     
@@ -18,6 +19,10 @@ public class CraftingTable : MonoBehaviour
         {
             craftingPanel.SetActive(!craftingPanel.activeSelf);
             overlay.SetActive(!overlay.activeSelf);
+            if (craftingPanel.activeSelf == false)
+            {
+                possibleItemsPanel.SetActive(false);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && !craftingPanel.activeSelf)
