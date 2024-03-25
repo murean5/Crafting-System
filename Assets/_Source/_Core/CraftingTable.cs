@@ -1,11 +1,9 @@
-using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 public class CraftingTable : MonoBehaviour
 {
     [SerializeField] private GameObject messageCloud;
     [SerializeField] private GameObject craftingPanel;
-    [SerializeField] private GameObject storagePanel;
     [SerializeField] private GameObject overlay;
     [SerializeField] private GameObject possibleItemsPanel;
     
@@ -14,22 +12,16 @@ public class CraftingTable : MonoBehaviour
     private void Update()
     {
         if (!_canCraft) return;
-        
-        if (Input.GetKeyDown(KeyCode.E) && !storagePanel.activeSelf)
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
             craftingPanel.SetActive(!craftingPanel.activeSelf);
             overlay.SetActive(!overlay.activeSelf);
-            
+
             if (!craftingPanel.activeSelf)
             {
                 possibleItemsPanel.SetActive(false);
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q) && !craftingPanel.activeSelf)
-        {
-            storagePanel.SetActive(!storagePanel.activeSelf);
-            overlay.SetActive(!overlay.activeSelf);
         }
     }
 
