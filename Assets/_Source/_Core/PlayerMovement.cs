@@ -9,12 +9,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float _len;
 
-    void Start()
+    private void Start()
     {
         _len = (spriteRenderer.size * transform.localScale.x).x;
     }
 
-    void Update()
+    private void Update()
     {
         if (_isMoving) return;
 

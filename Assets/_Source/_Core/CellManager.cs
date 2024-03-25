@@ -15,14 +15,12 @@ public class CellManager : MonoBehaviour
 
     [SerializeField] private Transform possibleItemsScrollViewContent;
     [SerializeField] public GameObject possibleItemsPanel;
-
+    private List<Item> _possibleItems;
+    
     [SerializeField] private GameObject itemPanelPrefab;
 
     public Cell selectedCell;
-
     [SerializeField] public Cell resultCell;
-
-    private List<Item> _possibleItems;
 
     private const string PathToPossibleItemsJson = "Lists/possibleItems";
     private const string PathToRecipesJson = "Lists/recipes";
@@ -40,11 +38,11 @@ public class CellManager : MonoBehaviour
 
         foreach (var cell in craftingCells)
         {
-            cell.isStorage = false;
+            cell.isResultCell = false;
             cell.isFull = false;
         }
 
-        resultCell.isStorage = true;
+        resultCell.isResultCell = true;
         resultCell.isFull = false;
 
         _craftingRecipes = LoadRecipes(PathToRecipesJson);

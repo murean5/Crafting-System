@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.PointerEventData;
 
@@ -17,16 +12,24 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     private Image _myImage;
 
     public Item MyItem;
-    public bool isStorage;
+    public bool isResultCell;
     public bool isFull;
 
     private CellManager _cellManager;
+    
+    private Camera _mainCamera;
 
     private void Awake()
     {
         _myImage = GetComponent<Image>();
         _baseColor = _myImage.color;
-        _cellManager = GetComponentInParent<CellManager>();
+        
+        if (Camera.main is not null)
+        {
+            _mainCamera = Camera.main;
+        }
+
+        _cellManager = _mainCamera.GetComponent<CellManager>();
         if (!isFull)
         {
             myItemImage.gameObject.SetActive(false);
@@ -45,7 +48,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (isStorage) return;
+        if (isResultCell) return;
         
         _cellManager.selectedCell = this;
         
@@ -81,7 +84,7 @@ public class Cell : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         myItemImage.gameObject.SetActive(true);
         isFull = true;
 
-        if (isStorage) return;
+        if (isResultCell) return;
         _cellManager.UpdateCraftingTable();
     }
 }
