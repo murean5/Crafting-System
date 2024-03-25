@@ -1,12 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-internal struct RecipeData
+internal struct RecipeData 
 {
     public string Recipe;
     public int ResultItemId;
@@ -28,7 +25,7 @@ public class CellManager : MonoBehaviour
     private List<Item> _possibleItems;
 
     private const string PathToPossibleItemsJson = "Lists/possibleItems";
-    private const string PathToRecipesTxt = "Lists/recipes";
+    private const string PathToRecipesJson = "Lists/recipes";
 
     private List<RecipeData> _craftingRecipes;
 
@@ -50,7 +47,7 @@ public class CellManager : MonoBehaviour
         resultCell.isStorage = true;
         resultCell.isFull = false;
 
-        _craftingRecipes = LoadRecipes(PathToRecipesTxt);
+        _craftingRecipes = LoadRecipes(PathToRecipesJson);
     }
 
     public void UpdateCraftingTable()

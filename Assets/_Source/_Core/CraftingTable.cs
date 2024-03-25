@@ -19,7 +19,8 @@ public class CraftingTable : MonoBehaviour
         {
             craftingPanel.SetActive(!craftingPanel.activeSelf);
             overlay.SetActive(!overlay.activeSelf);
-            if (craftingPanel.activeSelf == false)
+            
+            if (!craftingPanel.activeSelf)
             {
                 possibleItemsPanel.SetActive(false);
             }

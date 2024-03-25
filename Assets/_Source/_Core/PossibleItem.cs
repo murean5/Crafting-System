@@ -20,9 +20,4 @@ public class PossibleItem : MonoBehaviour
         cellManager.selectedCell.AddItem(Item);
         cellManager.possibleItemsPanel.SetActive(false);
     }
-    
-    private void ChooseMeAsCraftResult()
-    {
-        cellManager.resultCell.AddItem(Item);
-    }
 }

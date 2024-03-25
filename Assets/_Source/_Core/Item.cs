@@ -1,8 +1,8 @@
+using System;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
-
 public class Item
 {
     public string Name;
